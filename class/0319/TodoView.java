@@ -48,16 +48,15 @@ public class TodoView {
         System.out.println("Register Result: " + insertFlag);
 
 
-        Scanner scan = new Scanner(System.in);
-        try {
+        try (Scanner scan = new Scanner(System.in)) {
+            // Your code using the scanner
             String input = scan.nextLine();
-            System.out.println("입력한 값: " + input);
         } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            scan.close(); // 직접 닫아주기!
+            // Handle any exceptions
         }
+        // No need to explicitly call scan.close() as it is auto-closed
         
+    }
 
     
     // 수정 메서드
@@ -82,16 +81,16 @@ public class TodoView {
         System.out.print("새 우선순위 (숫자): ");
         int priority = Integer.parseInt(scan.nextLine());
 
-        public int update(int seq, String title, String content, String startDate, String endDate, int priority) {
-            // 여기에 업데이트 로직 작성
-            return 1; 
-        }
+        public String update(int seq, String title, String content, String startDate, String endDate, int priority);
+        return 1;
 
 
         //새로 추가. 
 
 
-    
+        intFlag = front.update(seq,content,check);
+        System.out.println(updateFlag);
+    }
 
     // 삭제 메서드
     public void delete() {
