@@ -8,6 +8,8 @@ import siat.study.post.domain.PostRequestDTO;
 import siat.study.post.domain.PostResponseDTO;
 
 // xxxDAO(Data Access Object)로 DBMS와 작업을 전담하는 역할
+
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
