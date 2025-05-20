@@ -1,0 +1,13 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://localhost:3306/devops
+    username: root
+    password: 123456789
+
+  mybatis:
+    mapper-locations: classpath:/mappers/**/*Mapper.xml
+    config-location: classpath:/mybatis-config.xml
