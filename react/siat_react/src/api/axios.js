@@ -7,4 +7,12 @@ const api = axios.create({
   },
 });
 
+ // 외부 axios 라이브러리 가져오기
+
+const api = axios.create((
+  baseURL
+
 export default api;
+
+
+
