@@ -1,0 +1,65 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+public class VendingMachine {
+    private static Map<String, Integer> drinks = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 음료 초기화
+        drinks.put("콜라", 1500);
+        drinks.put("사이다", 1300);
+        drinks.put("커피", 1000);
+        drinks.put("물", 700);
+
+        System.out.println("=== 자판기 ===");
+        while (true) {
+            showMenu();
+
+            System.out.print("원하는 음료를 입력하세요 (종료하려면 '종료' 입력): ");
+            String choice = scanner.nextLine();
+
+            if (choice.equals("종료")) {
+                System.out.println("이용해주셔서 감사합니다.");
+                break;
+            }
+
+            if (!drinks.containsKey(choice)) {
+                System.out.println("없는 메뉴입니다. 다시 입력해주세요.");
+                continue;
+            }
+
+            int price = drinks.get(choice);
+            System.out.printf("%s의 가격은 %d원입니다.\n", choice, price);
+            System.out.print("돈을 투입하세요: ");
+
+            int money;
+            try {
+                money = Integer.parseInt(scanner.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("숫자만 입력해주세요.");
+                continue;
+            }
+
+            if (money < price) {
+                System.out.println("투입 금액이 부족합니다.");
+            } else {
+                int change = money - price;
+                System.out.printf("%s가 나왔습니다. 잔돈은 %d원입니다.\n", choice, change);
+            }
+
+            System.out.println("-----------------------------");
+        }
+
+        scanner.close();
+    }
+
+    private static void showMenu() {
+        System.out.println("음료 목록:");
+        for (String drink : drinks.keySet()) {
+            System.out.printf("- %s: %d원\n", drink, drinks.get(drink));
+        }
+    }
+}
