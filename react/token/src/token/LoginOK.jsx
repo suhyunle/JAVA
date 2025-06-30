@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 function LoginOk(props) {
     const navigate = useNavigate();
 
-    // 통신 요청 버튼 클릭 시 처리하는 함수
     const btnHandler = async () => {
         console.log(">>>>>> btnHandler 실행");
 
